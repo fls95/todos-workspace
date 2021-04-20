@@ -14,7 +14,24 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@todos-workspace/shared/models": ["libs/shared/models/src/index.ts"],
+      "@todos-workspace/todos-app/feature-todos": [
+        "libs/todos-app/feature-todos/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/ui-header": [
+        "libs/todos-app/ui-header/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/ui-material": [
+        "libs/todos-app/ui-material/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/ui-todos-list": [
+        "libs/todos-app/ui-todos-list/src/index.ts"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true
   },
   "exclude": ["node_modules", "tmp"]
 }
