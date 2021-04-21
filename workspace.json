@@ -333,6 +333,33 @@
           }
         }
       }
+    },
+    "todos-app-data-access-todos": {
+      "projectType": "library",
+      "root": "libs/todos-app/data-access-todos",
+      "sourceRoot": "libs/todos-app/data-access-todos/src",
+      "prefix": "todos-workspace",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/todos-app/data-access-todos/src/**/*.ts",
+              "libs/todos-app/data-access-todos/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/todos-app/data-access-todos"
+          ],
+          "options": {
+            "jestConfig": "libs/todos-app/data-access-todos/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

@@ -1,2 +1,4 @@
 <button id="add-todo" (click)="addTodo()">Add Todo</button>
-<todos-workspace-todos-list [todos]="todos"></todos-workspace-todos-list>
+<todos-workspace-todos-list
+  [todos]="todos$ | async"
+></todos-workspace-todos-list>

@@ -27,6 +27,9 @@
       ],
       "@todos-workspace/todos-app/ui-todos-list": [
         "libs/todos-app/ui-todos-list/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/data-access-todos": [
+        "libs/todos-app/data-access-todos/src/index.ts"
       ]
     }
   },

@@ -1,6 +1,10 @@
+import * as TodosActions from './../../../../data-access-todos/src/lib/+state/todos.actions';
+import * as TodosSelectors from './../../../../data-access-todos/src/lib/+state/todos.selectors';
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Store } from '@ngrx/store';
 import { Todo } from '@todos-workspace/shared/models';
+import { TodosService } from '../services/todos/todos.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'todos-workspace-todos',
@@ -8,18 +12,24 @@ import { Todo } from '@todos-workspace/shared/models';
   styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent {
-  todos: Todo[] = [];
+  // todos: Todo[] = [];
+  todos$: Observable<Todo[]> = this.store.select(TodosSelectors.selectTodos);
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private todosService: TodosService,
+    private store: Store<{ todos: Todo[] }>
+  ) {
     this.fetch();
   }
 
   fetch() {
-    this.http.get<Todo[]>('/api/todos').subscribe((t) => (this.todos = t));
+    // this.todosService.getTodos().subscribe((t) => (this.todos = t));
+    this.store.dispatch(TodosActions.loadTodos());
   }
 
   addTodo() {
-    this.http.post('/api/addTodo', {}).subscribe(() => {
+    console.log(this.store);
+    this.todosService.addTodo().subscribe(() => {
       this.fetch();
     });
   }
