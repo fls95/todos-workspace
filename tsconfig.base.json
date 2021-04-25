@@ -19,9 +19,6 @@
       "@todos-workspace/todos-app/feature-todos": [
         "libs/todos-app/feature-todos/src/index.ts"
       ],
-      "@todos-workspace/todos-app/ui-header": [
-        "libs/todos-app/ui-header/src/index.ts"
-      ],
       "@todos-workspace/todos-app/ui-material": [
         "libs/todos-app/ui-material/src/index.ts"
       ],
@@ -40,6 +37,9 @@
       ],
       "@todos-workspace/todos-app/ui-todo-detail-form": [
         "libs/todos-app/ui-todo-detail-form/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/ui-todos-header": [
+        "libs/todos-app/ui-todos-header/src/index.ts"
       ]
     }
   },

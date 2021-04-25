@@ -254,33 +254,6 @@
         }
       }
     },
-    "todos-app-ui-header": {
-      "projectType": "library",
-      "root": "libs/todos-app/ui-header",
-      "sourceRoot": "libs/todos-app/ui-header/src",
-      "prefix": "todos-workspace",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/todos-app/ui-header/src/**/*.ts",
-              "libs/todos-app/ui-header/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/todos-app/ui-header"
-          ],
-          "options": {
-            "jestConfig": "libs/todos-app/ui-header/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "todos-app-ui-material": {
       "projectType": "library",
       "root": "libs/todos-app/ui-material",
@@ -463,6 +436,33 @@
           ],
           "options": {
             "jestConfig": "libs/todos-app/ui-todo-detail-form/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todos-app-ui-todos-header": {
+      "projectType": "library",
+      "root": "libs/todos-app/ui-todos-header",
+      "sourceRoot": "libs/todos-app/ui-todos-header/src",
+      "prefix": "todos-workspace",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/todos-app/ui-todos-header/src/**/*.ts",
+              "libs/todos-app/ui-todos-header/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/todos-app/ui-todos-header"
+          ],
+          "options": {
+            "jestConfig": "libs/todos-app/ui-todos-header/jest.config.js",
             "passWithNoTests": true
           }
         }

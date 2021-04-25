@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'todos-app-ui-header',
+  displayName: 'todos-app-ui-todos-header',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../coverage/libs/todos-app/ui-header',
+  coverageDirectory: '../../../coverage/libs/todos-app/ui-todos-header',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
