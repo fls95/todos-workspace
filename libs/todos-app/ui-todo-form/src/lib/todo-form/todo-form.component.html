@@ -1,0 +1,6 @@
+<input
+  type="text"
+  [formControl]="todoTitleControl"
+  (keyup.enter)="updateTitle($event)"
+  (blur)="updateTitle($event)"
+/>

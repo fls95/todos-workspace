@@ -1,3 +1,4 @@
+import { TodosAppUiMaterialModule } from '@todos-workspace/todos-app/ui-material';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TodosAppUiTodosListModule } from '@todos-workspace/todos-app/ui-todos-list';
@@ -15,6 +16,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    TodosAppUiMaterialModule,
     TodosAppUiTodosListModule,
     RouterModule.forChild(routes),
     TodosAppDataAccessTodosModule,

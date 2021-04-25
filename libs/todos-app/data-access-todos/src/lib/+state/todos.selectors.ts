@@ -5,7 +5,29 @@ export const selectTodosState = createFeatureSelector<fromTodos.TodosData>(
   fromTodos.todosFeatureKey
 );
 
-export const selectTodos = createSelector(
+export const selectTodoIds = createSelector(
   selectTodosState,
-  (state) => state.todos
+  fromTodos.selectTodoIds // shorthand for todosState => fromTodos.selectTodoIds(todosState)
+);
+export const selectTodoEntities = createSelector(
+  selectTodosState,
+  fromTodos.selectTodoEntities
+);
+export const selectAllTodos = createSelector(
+  selectTodosState,
+  fromTodos.selectAllTodos
+);
+export const selectTodoTotal = createSelector(
+  selectTodosState,
+  fromTodos.selectTodoTotal
+);
+export const selectCurrentTodoId = createSelector(
+  selectTodosState,
+  fromTodos.getSelectedTodoId
+);
+
+export const selectCurrentTodo = createSelector(
+  selectTodoEntities,
+  selectCurrentTodoId,
+  (todoEntities, todoId) => todoEntities[todoId]
 );

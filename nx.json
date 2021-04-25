@@ -24,6 +24,8 @@
     "todos-app-ui-header": { "tags": [] },
     "todos-app-ui-material": { "tags": [] },
     "todos-app-ui-todos-list": { "tags": [] },
-    "todos-app-data-access-todos": { "tags": [] }
+    "todos-app-data-access-todos": { "tags": [] },
+    "todos-app-ui-todo-form": { "tags": [] },
+    "api-todos": { "tags": [] }
   }
 }

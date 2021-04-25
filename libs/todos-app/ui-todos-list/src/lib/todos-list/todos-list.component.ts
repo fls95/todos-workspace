@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Update } from '@ngrx/entity';
 import { Todo } from '@todos-workspace/shared/models';
 
 @Component({
@@ -8,4 +9,14 @@ import { Todo } from '@todos-workspace/shared/models';
 })
 export class TodosListComponent {
   @Input() todos: Todo[];
+  @Output() emitTodoUpdate = new EventEmitter<Update<Todo>>();
+  @Output() emitTodoDelete = new EventEmitter<Todo['id']>();
+
+  onTodoUpdate(update: Update<Todo>) {
+    this.emitTodoUpdate.emit(update);
+  }
+
+  onTodoDelete(id: Todo['id']) {
+    this.emitTodoDelete.emit(id);
+  }
 }

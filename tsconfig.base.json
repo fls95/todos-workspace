@@ -30,7 +30,11 @@
       ],
       "@todos-workspace/todos-app/data-access-todos": [
         "libs/todos-app/data-access-todos/src/index.ts"
-      ]
+      ],
+      "@todos-workspace/todos-app/ui-todo-form": [
+        "libs/todos-app/ui-todo-form/src/index.ts"
+      ],
+      "@todos-workspace/api/todos": ["libs/api/todos/src/index.ts"]
     }
   },
   "angularCompilerOptions": {

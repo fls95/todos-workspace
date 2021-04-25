@@ -8,5 +8,7 @@ module.exports = {
     '<rootDir>/libs/todos-app/ui-material',
     '<rootDir>/libs/todos-app/ui-todos-list',
     '<rootDir>/libs/todos-app/data-access-todos',
+    '<rootDir>/libs/todos-app/ui-todo-form',
+    '<rootDir>/libs/api/todos',
   ],
 };

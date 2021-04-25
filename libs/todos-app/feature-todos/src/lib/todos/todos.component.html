@@ -1,4 +1,9 @@
-<button id="add-todo" (click)="addTodo()">Add Todo</button>
+<button mat-button color="primary" (click)="addTodo()">
+  <mat-icon>add_task</mat-icon>
+  Add new todo
+</button>
 <todos-workspace-todos-list
   [todos]="todos$ | async"
+  (emitTodoUpdate)="onTodoUpdate($event)"
+  (emitTodoDelete)="onTodoDelete($event)"
 ></todos-workspace-todos-list>

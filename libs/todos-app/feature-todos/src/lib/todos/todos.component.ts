@@ -1,10 +1,20 @@
-import * as TodosActions from './../../../../data-access-todos/src/lib/+state/todos.actions';
-import * as TodosSelectors from './../../../../data-access-todos/src/lib/+state/todos.selectors';
+import { Update } from '@ngrx/entity';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Todo } from '@todos-workspace/shared/models';
-import { TodosService } from '../services/todos/todos.service';
+import {
+  selectAllTodos,
+  loadTodosRequest,
+  addTodoRequest,
+  updateTodoRequest,
+  deleteTodoRequest,
+} from '@todos-workspace/todos-app/data-access-todos';
 import { Observable } from 'rxjs';
+
+const emptyTodo: Todo = {
+  id: null,
+  title: null,
+};
 
 @Component({
   selector: 'todos-workspace-todos',
@@ -13,24 +23,25 @@ import { Observable } from 'rxjs';
 })
 export class TodosComponent {
   // todos: Todo[] = [];
-  todos$: Observable<Todo[]> = this.store.select(TodosSelectors.selectTodos);
+  todos$: Observable<Todo[]> = this.store.select(selectAllTodos);
 
-  constructor(
-    private todosService: TodosService,
-    private store: Store<{ todos: Todo[] }>
-  ) {
+  constructor(private store: Store<{ todos: Todo[] }>) {
     this.fetch();
   }
 
   fetch() {
-    // this.todosService.getTodos().subscribe((t) => (this.todos = t));
-    this.store.dispatch(TodosActions.loadTodos());
+    this.store.dispatch(loadTodosRequest());
   }
 
   addTodo() {
-    console.log(this.store);
-    this.todosService.addTodo().subscribe(() => {
-      this.fetch();
-    });
+    this.store.dispatch(addTodoRequest({ todo: emptyTodo }));
+  }
+
+  onTodoUpdate(update: Update<Todo>) {
+    this.store.dispatch(updateTodoRequest({ update }));
+  }
+
+  onTodoDelete(id: Todo['id']) {
+    this.store.dispatch(deleteTodoRequest({ id }));
   }
 }

@@ -1,3 +1,17 @@
 <mat-list>
-  <mat-list-item *ngFor="let t of todos">{{ t.title }}</mat-list-item>
+  <mat-list-item *ngFor="let todo of todos">
+    <span matLine>
+      &nbsp;
+      <mat-checkbox></mat-checkbox>
+      &nbsp;
+      <todos-workspace-todo-form
+        [todo]="todo"
+        (emitTodoUpdate)="onTodoUpdate($event)"
+      ></todos-workspace-todo-form>
+    </span>
+    <button mat-icon-button (click)="onTodoDelete(todo.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <mat-divider [inset]="true"></mat-divider>
+  </mat-list-item>
 </mat-list>
