@@ -1,5 +1,11 @@
+:host {
+  width: 100%;
+}
+
 input {
   border: none;
   outline: none;
   font: inherit;
+  width: 100%;
+  text-overflow: ellipsis;
 }

@@ -1,7 +1,13 @@
-<button mat-button color="primary" (click)="addTodo()">
-  <mat-icon>add_task</mat-icon>
-  Add new todo
-</button>
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell--span-12">
+      <button mat-button color="primary" (click)="addTodo()">
+        <mat-icon>add_task</mat-icon>
+        Add new todo
+      </button>
+    </div>
+  </div>
+</div>
 <todos-workspace-todos-list
   [todos]="todos$ | async"
   (emitTodoUpdate)="onTodoUpdate($event)"

@@ -10,5 +10,7 @@ module.exports = {
     '<rootDir>/libs/todos-app/data-access-todos',
     '<rootDir>/libs/todos-app/ui-todo-form',
     '<rootDir>/libs/api/todos',
+    '<rootDir>/libs/todos-app/feature-todo-detail',
+    '<rootDir>/libs/todos-app/ui-todo-detail-form',
   ],
 };

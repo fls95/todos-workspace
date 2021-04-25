@@ -15,6 +15,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'todo-detail',
+    loadChildren: () =>
+      import('@todos-workspace/todos-app/feature-todo-detail').then(
+        (module) => module.TodosAppFeatureTodoDetailModule
+      ),
+  },
+  {
     path: '**',
     redirectTo: 'todos',
   },

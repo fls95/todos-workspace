@@ -42,6 +42,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/@material/layout-grid/mdc-layout-grid.import.scss",
               "apps/todos-app/src/styles.scss"
             ],
             "scripts": []
@@ -408,6 +409,60 @@
           ],
           "options": {
             "jestConfig": "libs/api/todos/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todos-app-feature-todo-detail": {
+      "projectType": "library",
+      "root": "libs/todos-app/feature-todo-detail",
+      "sourceRoot": "libs/todos-app/feature-todo-detail/src",
+      "prefix": "todos-workspace",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/todos-app/feature-todo-detail/src/**/*.ts",
+              "libs/todos-app/feature-todo-detail/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/todos-app/feature-todo-detail"
+          ],
+          "options": {
+            "jestConfig": "libs/todos-app/feature-todo-detail/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todos-app-ui-todo-detail-form": {
+      "projectType": "library",
+      "root": "libs/todos-app/ui-todo-detail-form",
+      "sourceRoot": "libs/todos-app/ui-todo-detail-form/src",
+      "prefix": "todos-workspace",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/todos-app/ui-todo-detail-form/src/**/*.ts",
+              "libs/todos-app/ui-todo-detail-form/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/todos-app/ui-todo-detail-form"
+          ],
+          "options": {
+            "jestConfig": "libs/todos-app/ui-todo-detail-form/jest.config.js",
             "passWithNoTests": true
           }
         }
