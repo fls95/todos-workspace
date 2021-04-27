@@ -8,8 +8,10 @@ import {
   addTodoRequest,
   updateTodoRequest,
   deleteTodoRequest,
+  TodosState,
 } from '@todos-workspace/todos-app/data-access-todos';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 const emptyTodo: Todo = {
   id: null,
@@ -22,10 +24,9 @@ const emptyTodo: Todo = {
   styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent {
-  // todos: Todo[] = [];
   todos$: Observable<Todo[]> = this.store.select(selectAllTodos);
 
-  constructor(private store: Store<{ todos: Todo[] }>) {
+  constructor(private store: Store<TodosState>, private router: Router) {
     this.fetch();
   }
 
@@ -43,5 +44,9 @@ export class TodosComponent {
 
   onTodoDelete(id: Todo['id']) {
     this.store.dispatch(deleteTodoRequest({ id }));
+  }
+
+  navigateToDetail(id: Todo['id']) {
+    this.router.navigate(['/todo-detail'], { queryParams: { id: id } });
   }
 }

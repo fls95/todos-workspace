@@ -40,6 +40,17 @@
       ],
       "@todos-workspace/todos-app/ui-todos-header": [
         "libs/todos-app/ui-todos-header/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/ui-todo-detail-header": [
+        "libs/todos-app/ui-todo-detail-header/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/data-access-todo-detail": [
+        "libs/todos-app/data-access-todo-detail/src/index.ts"
+      ],
+      "@todos-workspace/api/todo-detail": ["libs/api/todo-detail/src/index.ts"],
+      "@todos-workspace/api/shared/data": ["libs/api/shared/data/src/index.ts"],
+      "@todos-workspace/todos-app/util-auto-unsubscribe": [
+        "libs/todos-app/util-auto-unsubscribe/src/index.ts"
       ]
     }
   },

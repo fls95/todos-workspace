@@ -1,1 +1,9 @@
-<todos-workspace-todo-detail-form></todos-workspace-todo-detail-form>
+<todos-workspace-todo-detail-header
+  (emitNavigateToTodos)="onNavigateToTodos()"
+  (emitTodoAndTodoDetailDelete)="onTodoAndTodoDetailDelete()"
+></todos-workspace-todo-detail-header>
+<ng-container *ngIf="todoDetail$ | async as todoDetail">
+  <todos-workspace-todo-detail-form
+    [todoDetail]="todoDetail"
+  ></todos-workspace-todo-detail-form>
+</ng-container>

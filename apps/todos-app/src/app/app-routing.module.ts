@@ -3,11 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'todos',
-    pathMatch: 'full',
-  },
-  {
     path: 'todos',
     loadChildren: () =>
       import('@todos-workspace/todos-app/feature-todos').then(
@@ -20,6 +15,11 @@ const routes: Routes = [
       import('@todos-workspace/todos-app/feature-todo-detail').then(
         (module) => module.TodosAppFeatureTodoDetailModule
       ),
+  },
+  {
+    path: '',
+    redirectTo: 'todos',
+    pathMatch: 'full',
   },
   {
     path: '**',

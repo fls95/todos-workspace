@@ -11,6 +11,7 @@ export class TodosListComponent {
   @Input() todos: Todo[];
   @Output() emitTodoUpdate = new EventEmitter<Update<Todo>>();
   @Output() emitTodoDelete = new EventEmitter<Todo['id']>();
+  @Output() emitTodoDetailEdit = new EventEmitter<Todo['id']>();
 
   onTodoUpdate(update: Update<Todo>) {
     this.emitTodoUpdate.emit(update);
@@ -18,5 +19,9 @@ export class TodosListComponent {
 
   onTodoDelete(id: Todo['id']) {
     this.emitTodoDelete.emit(id);
+  }
+
+  onTodoDetailEdit(id: Todo['id']) {
+    this.emitTodoDetailEdit.emit(id);
   }
 }

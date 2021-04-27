@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { TodosAppUiMaterialModule } from '@todos-workspace/todos-app/ui-material';
+import { TodosAppUiTodoDetailHeaderModule } from '@todos-workspace/todos-app/ui-todo-detail-header';
 import { TodosAppUiTodoDetailFormModule } from '@todos-workspace/todos-app/ui-todo-detail-form';
+import { TodosAppDataAccessTodoDetailModule } from '@todos-workspace/todos-app/data-access-todo-detail';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 
 const routes: Routes = [
@@ -15,9 +16,10 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    TodosAppUiMaterialModule,
+    TodosAppUiTodoDetailHeaderModule,
     TodosAppUiTodoDetailFormModule,
     RouterModule.forChild(routes),
+    TodosAppDataAccessTodoDetailModule,
   ],
   declarations: [TodoDetailComponent],
   exports: [TodoDetailComponent],

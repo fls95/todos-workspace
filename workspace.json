@@ -1,8 +1,6 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
+  "cli": { "defaultCollection": "@nrwl/angular" },
   "defaultProject": "todos-app",
   "generators": {
     "@nrwl/angular:application": {
@@ -16,9 +14,7 @@
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    }
+    "@nrwl/angular:component": { "style": "scss" }
   },
   "projects": {
     "todos-app": {
@@ -84,16 +80,12 @@
             "proxyConfig": "apps/todos-app/proxy.conf.json"
           },
           "configurations": {
-            "production": {
-              "browserTarget": "todos-app:build:production"
-            }
+            "production": { "browserTarget": "todos-app:build:production" }
           }
         },
         "extract-i18n": {
           "executor": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "todos-app:build"
-          }
+          "options": { "browserTarget": "todos-app:build" }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
@@ -106,9 +98,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/todos-app"
-          ],
+          "outputs": ["coverage/apps/todos-app"],
           "options": {
             "jestConfig": "apps/todos-app/jest.config.js",
             "passWithNoTests": true
@@ -129,18 +119,12 @@
             "devServerTarget": "todos-app:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "todos-app:serve:production"
-            }
+            "production": { "devServerTarget": "todos-app:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/todos-app-e2e/**/*.{js,ts}"
-            ]
-          }
+          "options": { "lintFilePatterns": ["apps/todos-app-e2e/**/*.{js,ts}"] }
         }
       }
     },
@@ -151,16 +135,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -178,23 +158,15 @@
         },
         "serve": {
           "executor": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "api:build"
-          }
+          "options": { "buildTarget": "api:build" }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/api/**/*.ts"
-            ]
-          }
+          "options": { "lintFilePatterns": ["apps/api/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/api"
-          ],
+          "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -209,17 +181,11 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/models/**/*.ts"
-            ]
-          }
+          "options": { "lintFilePatterns": ["libs/shared/models/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/models"
-          ],
+          "outputs": ["coverage/libs/shared/models"],
           "options": {
             "jestConfig": "libs/shared/models/jest.config.js",
             "passWithNoTests": true
@@ -244,9 +210,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/todos-app/feature-todos"
-          ],
+          "outputs": ["coverage/libs/todos-app/feature-todos"],
           "options": {
             "jestConfig": "libs/todos-app/feature-todos/jest.config.js",
             "passWithNoTests": true
@@ -271,9 +235,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/todos-app/ui-material"
-          ],
+          "outputs": ["coverage/libs/todos-app/ui-material"],
           "options": {
             "jestConfig": "libs/todos-app/ui-material/jest.config.js",
             "passWithNoTests": true
@@ -298,9 +260,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/todos-app/ui-todos-list"
-          ],
+          "outputs": ["coverage/libs/todos-app/ui-todos-list"],
           "options": {
             "jestConfig": "libs/todos-app/ui-todos-list/jest.config.js",
             "passWithNoTests": true
@@ -325,9 +285,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/todos-app/data-access-todos"
-          ],
+          "outputs": ["coverage/libs/todos-app/data-access-todos"],
           "options": {
             "jestConfig": "libs/todos-app/data-access-todos/jest.config.js",
             "passWithNoTests": true
@@ -352,9 +310,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/todos-app/ui-todo-form"
-          ],
+          "outputs": ["coverage/libs/todos-app/ui-todo-form"],
           "options": {
             "jestConfig": "libs/todos-app/ui-todo-form/jest.config.js",
             "passWithNoTests": true
@@ -369,17 +325,11 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/api/todos/**/*.ts"
-            ]
-          }
+          "options": { "lintFilePatterns": ["libs/api/todos/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api/todos"
-          ],
+          "outputs": ["coverage/libs/api/todos"],
           "options": {
             "jestConfig": "libs/api/todos/jest.config.js",
             "passWithNoTests": true
@@ -404,9 +354,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/todos-app/feature-todo-detail"
-          ],
+          "outputs": ["coverage/libs/todos-app/feature-todo-detail"],
           "options": {
             "jestConfig": "libs/todos-app/feature-todo-detail/jest.config.js",
             "passWithNoTests": true
@@ -431,9 +379,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/todos-app/ui-todo-detail-form"
-          ],
+          "outputs": ["coverage/libs/todos-app/ui-todo-detail-form"],
           "options": {
             "jestConfig": "libs/todos-app/ui-todo-detail-form/jest.config.js",
             "passWithNoTests": true
@@ -458,11 +404,118 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/todos-app/ui-todos-header"
-          ],
+          "outputs": ["coverage/libs/todos-app/ui-todos-header"],
           "options": {
             "jestConfig": "libs/todos-app/ui-todos-header/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todos-app-ui-todo-detail-header": {
+      "projectType": "library",
+      "root": "libs/todos-app/ui-todo-detail-header",
+      "sourceRoot": "libs/todos-app/ui-todo-detail-header/src",
+      "prefix": "todos-workspace",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/todos-app/ui-todo-detail-header/src/**/*.ts",
+              "libs/todos-app/ui-todo-detail-header/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/todos-app/ui-todo-detail-header"],
+          "options": {
+            "jestConfig": "libs/todos-app/ui-todo-detail-header/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todos-app-data-access-todo-detail": {
+      "projectType": "library",
+      "root": "libs/todos-app/data-access-todo-detail",
+      "sourceRoot": "libs/todos-app/data-access-todo-detail/src",
+      "prefix": "todos-workspace",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/todos-app/data-access-todo-detail/src/**/*.ts",
+              "libs/todos-app/data-access-todo-detail/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/todos-app/data-access-todo-detail"],
+          "options": {
+            "jestConfig": "libs/todos-app/data-access-todo-detail/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-todo-detail": {
+      "root": "libs/api/todo-detail",
+      "sourceRoot": "libs/api/todo-detail/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["libs/api/todo-detail/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/todo-detail"],
+          "options": {
+            "jestConfig": "libs/api/todo-detail/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-shared-data": {
+      "root": "libs/api/shared/data",
+      "sourceRoot": "libs/api/shared/data/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["libs/api/shared/data/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/shared/data"],
+          "options": {
+            "jestConfig": "libs/api/shared/data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todos-app-util-auto-unsubscribe": {
+      "root": "libs/todos-app/util-auto-unsubscribe",
+      "sourceRoot": "libs/todos-app/util-auto-unsubscribe/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/todos-app/util-auto-unsubscribe/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/todos-app/util-auto-unsubscribe"],
+          "options": {
+            "jestConfig": "libs/todos-app/util-auto-unsubscribe/jest.config.js",
             "passWithNoTests": true
           }
         }

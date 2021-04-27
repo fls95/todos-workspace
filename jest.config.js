@@ -12,5 +12,10 @@ module.exports = {
     '<rootDir>/libs/api/todos',
     '<rootDir>/libs/todos-app/feature-todo-detail',
     '<rootDir>/libs/todos-app/ui-todo-detail-form',
+    '<rootDir>/libs/todos-app/ui-todo-detail-header',
+    '<rootDir>/libs/todos-app/data-access-todo-detail',
+    '<rootDir>/libs/api/todo-detail',
+    '<rootDir>/libs/api/shared/data',
+    '<rootDir>/libs/todos-app/util-auto-unsubscribe',
   ],
 };

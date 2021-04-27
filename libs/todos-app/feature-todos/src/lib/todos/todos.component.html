@@ -9,8 +9,11 @@
     </div>
   </div>
 </div>
-<todos-workspace-todos-list
-  [todos]="todos$ | async"
-  (emitTodoUpdate)="onTodoUpdate($event)"
-  (emitTodoDelete)="onTodoDelete($event)"
-></todos-workspace-todos-list>
+<ng-container *ngIf="todos$ | async as todos">
+  <todos-workspace-todos-list
+    [todos]="todos"
+    (emitTodoUpdate)="onTodoUpdate($event)"
+    (emitTodoDelete)="onTodoDelete($event)"
+    (emitTodoDetailEdit)="navigateToDetail($event)"
+  ></todos-workspace-todos-list>
+</ng-container>

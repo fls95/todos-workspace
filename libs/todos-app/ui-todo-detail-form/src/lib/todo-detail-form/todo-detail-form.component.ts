@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { TodoDetail } from '@todos-workspace/shared/models';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,6 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./todo-detail-form.component.scss'],
 })
 export class TodoDetailFormComponent implements OnInit {
+  @Input() todoDetail: TodoDetail;
   public todoDetailFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
@@ -17,8 +19,8 @@ export class TodoDetailFormComponent implements OnInit {
 
   createForm() {
     this.todoDetailFormGroup = this.formBuilder.group({
-      title: ['New title'],
-      detail: ['New detail for this todo'],
+      title: [this.todoDetail.title],
+      detail: [this.todoDetail.detail],
     });
   }
 }

@@ -7,7 +7,7 @@
       (emitTodoUpdate)="onTodoUpdate($event)"
     ></todos-workspace-todo-form>
     <!-- </div> -->
-    <button mat-icon-button>
+    <button mat-icon-button (click)="onTodoDetailEdit(todo.id)">
       <mat-icon>edit</mat-icon>
     </button>
     <button mat-icon-button (click)="onTodoDelete(todo.id)">

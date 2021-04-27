@@ -1,67 +1,38 @@
 {
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "npmScope": "todos-workspace",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
   "projects": {
-    "todos-app": {
-      "tags": []
-    },
-    "todos-app-e2e": {
-      "tags": [],
-      "implicitDependencies": ["todos-app"]
-    },
-    "api": {
-      "tags": []
-    },
-    "shared-models": {
-      "tags": []
-    },
-    "todos-app-feature-todos": {
-      "tags": []
-    },
-    "todos-app-ui-material": {
-      "tags": []
-    },
-    "todos-app-ui-todos-list": {
-      "tags": []
-    },
-    "todos-app-data-access-todos": {
-      "tags": []
-    },
-    "todos-app-ui-todo-form": {
-      "tags": []
-    },
-    "api-todos": {
-      "tags": []
-    },
-    "todos-app-feature-todo-detail": {
-      "tags": []
-    },
-    "todos-app-ui-todo-detail-form": {
-      "tags": []
-    },
-    "todos-app-ui-todos-header": {
-      "tags": []
-    }
+    "todos-app": { "tags": [] },
+    "todos-app-e2e": { "tags": [], "implicitDependencies": ["todos-app"] },
+    "api": { "tags": [] },
+    "shared-models": { "tags": [] },
+    "todos-app-feature-todos": { "tags": [] },
+    "todos-app-ui-material": { "tags": [] },
+    "todos-app-ui-todos-list": { "tags": [] },
+    "todos-app-data-access-todos": { "tags": [] },
+    "todos-app-ui-todo-form": { "tags": [] },
+    "api-todos": { "tags": [] },
+    "todos-app-feature-todo-detail": { "tags": [] },
+    "todos-app-ui-todo-detail-form": { "tags": [] },
+    "todos-app-ui-todos-header": { "tags": [] },
+    "todos-app-ui-todo-detail-header": { "tags": [] },
+    "todos-app-data-access-todo-detail": { "tags": [] },
+    "api-todo-detail": { "tags": [] },
+    "api-shared-data": { "tags": [] },
+    "todos-app-util-auto-unsubscribe": { "tags": [] }
   }
 }

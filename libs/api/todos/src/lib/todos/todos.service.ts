@@ -3,13 +3,12 @@ import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { Todo } from '@todos-workspace/shared/models';
 import { v4 as uuidv4 } from 'uuid';
+import { todos, todosDetails } from '@todos-workspace/api/shared/data';
 
 @Injectable()
 export class TodosService {
-  todos: Todo[] = [
-    { id: uuidv4(), title: 'Todo 1' },
-    { id: uuidv4(), title: 'Todo 2' },
-  ];
+  private todos = todos;
+  private todosDetails = todosDetails;
 
   create(createTodoDto: CreateTodoDto): { todo: Todo } {
     const todo = createTodoDto.todo;
@@ -21,6 +20,7 @@ export class TodosService {
     };
 
     this.todos.push(newTodo);
+
     return { todo: newTodo };
   }
 
@@ -44,8 +44,16 @@ export class TodosService {
   }
 
   remove(id: Todo['id']): { todo: Todo } {
-    const toDeleteIndex = this.todos.findIndex((todo) => todo.id === id);
-    const deleted = this.todos.splice(toDeleteIndex, 1)[0];
-    return { todo: deleted };
+    const toDeleteTodoIndex = this.todos.findIndex((todo) => todo.id === id);
+    const deletedTodo = this.todos.splice(toDeleteTodoIndex, 1)[0];
+
+    const toDeleteTodoDetailIndex = this.todosDetails.findIndex(
+      (todoDetail) => todoDetail.id === id
+    );
+    if (toDeleteTodoDetailIndex !== -1) {
+      this.todosDetails.splice(toDeleteTodoDetailIndex, 1)[0];
+    }
+
+    return { todo: deletedTodo };
   }
 }
