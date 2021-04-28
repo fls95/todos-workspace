@@ -28,8 +28,6 @@
     "api-todos": { "tags": [] },
     "todos-app-feature-todo-detail": { "tags": [] },
     "todos-app-ui-todo-detail-form": { "tags": [] },
-    "todos-app-ui-todos-header": { "tags": [] },
-    "todos-app-ui-todo-detail-header": { "tags": [] },
     "todos-app-data-access-todo-detail": { "tags": [] },
     "api-todo-detail": { "tags": [] },
     "api-shared-data": { "tags": [] },

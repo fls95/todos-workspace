@@ -38,12 +38,6 @@
       "@todos-workspace/todos-app/ui-todo-detail-form": [
         "libs/todos-app/ui-todo-detail-form/src/index.ts"
       ],
-      "@todos-workspace/todos-app/ui-todos-header": [
-        "libs/todos-app/ui-todos-header/src/index.ts"
-      ],
-      "@todos-workspace/todos-app/ui-todo-detail-header": [
-        "libs/todos-app/ui-todo-detail-header/src/index.ts"
-      ],
       "@todos-workspace/todos-app/data-access-todo-detail": [
         "libs/todos-app/data-access-todo-detail/src/index.ts"
       ],
