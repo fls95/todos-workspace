@@ -5,6 +5,7 @@ import { TodosAppUiTodoDetailHeaderModule } from '@todos-workspace/todos-app/ui-
 import { TodosAppUiTodoDetailFormModule } from '@todos-workspace/todos-app/ui-todo-detail-form';
 import { TodosAppDataAccessTodoDetailModule } from '@todos-workspace/todos-app/data-access-todo-detail';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
+import { TodosAppUiLoadingIndicatorModule } from '@todos-workspace/todos-app/ui-loading-indicator';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
     TodosAppUiTodoDetailFormModule,
     RouterModule.forChild(routes),
     TodosAppDataAccessTodoDetailModule,
+    TodosAppUiLoadingIndicatorModule,
   ],
   declarations: [TodoDetailComponent],
   exports: [TodoDetailComponent],

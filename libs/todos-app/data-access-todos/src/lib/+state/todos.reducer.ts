@@ -72,6 +72,8 @@ export function reducer(state: TodosData | undefined, action: Action) {
 
 export const getSelectedTodoId = (state: TodosData) => state.selectedTodoId;
 
+export const getLoading = (state: TodosData) => state.loading;
+
 // get the selectors
 const {
   selectIds,

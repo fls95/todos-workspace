@@ -51,6 +51,9 @@
       "@todos-workspace/api/shared/data": ["libs/api/shared/data/src/index.ts"],
       "@todos-workspace/todos-app/util-auto-unsubscribe": [
         "libs/todos-app/util-auto-unsubscribe/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/ui-loading-indicator": [
+        "libs/todos-app/ui-loading-indicator/src/index.ts"
       ]
     }
   },

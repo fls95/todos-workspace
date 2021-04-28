@@ -33,6 +33,7 @@
     "todos-app-data-access-todo-detail": { "tags": [] },
     "api-todo-detail": { "tags": [] },
     "api-shared-data": { "tags": [] },
-    "todos-app-util-auto-unsubscribe": { "tags": [] }
+    "todos-app-util-auto-unsubscribe": { "tags": [] },
+    "todos-app-ui-loading-indicator": { "tags": [] }
   }
 }

@@ -28,6 +28,7 @@ export class TodoDetailComponent {
   todoDetail$: Observable<TodoDetail> = this.store.select(
     selectCurrentTodoDetail
   );
+  loading: boolean;
 
   @ViewChild(TodoDetailFormComponent, { static: false })
   todoDetailFormComponent: TodoDetailFormComponent;
@@ -72,6 +73,7 @@ export class TodoDetailComponent {
     this.selectTodoDetailLoadingSubscription$ = this.store
       .select(selectTodoDetailLoading)
       .subscribe((loading) => {
+        this.loading = loading;
         if (!loading) {
           this.router.navigate(['/todos']);
         }

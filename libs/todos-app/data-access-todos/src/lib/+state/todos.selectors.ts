@@ -31,3 +31,8 @@ export const selectCurrentTodo = createSelector(
   selectCurrentTodoId,
   (todoEntities, todoId) => todoEntities[todoId]
 );
+
+export const selectTodoLoading = createSelector(
+  selectTodosState,
+  fromTodos.getLoading
+);

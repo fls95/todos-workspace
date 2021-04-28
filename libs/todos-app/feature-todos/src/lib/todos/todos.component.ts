@@ -9,8 +9,9 @@ import {
   updateTodoRequest,
   deleteTodoRequest,
   TodosState,
+  selectTodoLoading,
 } from '@todos-workspace/todos-app/data-access-todos';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 const emptyTodo: Todo = {
@@ -24,9 +25,17 @@ const emptyTodo: Todo = {
   styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent {
+  selectTodoLoadingSubscription$: Subscription;
   todos$: Observable<Todo[]> = this.store.select(selectAllTodos);
+  loading: boolean;
 
   constructor(private store: Store<TodosState>, private router: Router) {
+    this.selectTodoLoadingSubscription$ = this.store
+      .select(selectTodoLoading)
+      .subscribe((loading) => {
+        this.loading = loading;
+      });
+
     this.fetch();
   }
 
