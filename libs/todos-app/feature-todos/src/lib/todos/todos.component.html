@@ -1,7 +1,11 @@
-<todos-workspace-todos-header></todos-workspace-todos-header>
+<todos-workspace-header>
+  <mat-icon>done</mat-icon>&nbsp;Todos
+</todos-workspace-header>
+
 <todos-workspace-loading-indicator
   [loading]="loading"
 ></todos-workspace-loading-indicator>
+
 <div class="mdc-layout-grid">
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell--span-12">
@@ -12,6 +16,7 @@
     </div>
   </div>
 </div>
+
 <ng-container *ngIf="todos$ | async as todos">
   <todos-workspace-todos-list
     [todos]="todos"

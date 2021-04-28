@@ -1,10 +1,17 @@
-<todos-workspace-todo-detail-header
-  (emitNavigateToTodos)="onNavigateToTodos()"
-  (emitTodoAndTodoDetailDelete)="onTodoAndTodoDetailDelete()"
-></todos-workspace-todo-detail-header>
+<todos-workspace-header>
+  <button mat-icon-button (click)="onNavigateToTodos()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="onTodoAndTodoDetailDelete()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</todos-workspace-header>
+
 <todos-workspace-loading-indicator
   [loading]="loading"
 ></todos-workspace-loading-indicator>
+
 <ng-container *ngIf="todoDetail$ | async as todoDetail">
   <todos-workspace-todo-detail-form
     [todoDetail]="todoDetail"

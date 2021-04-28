@@ -54,6 +54,9 @@
       ],
       "@todos-workspace/todos-app/ui-loading-indicator": [
         "libs/todos-app/ui-loading-indicator/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/ui-header": [
+        "libs/todos-app/ui-header/src/index.ts"
       ]
     }
   },

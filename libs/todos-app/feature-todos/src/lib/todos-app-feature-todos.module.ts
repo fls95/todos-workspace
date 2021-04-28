@@ -1,6 +1,7 @@
 import { TodosAppUiMaterialModule } from '@todos-workspace/todos-app/ui-material';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TodosAppUiHeaderModule } from '@todos-workspace/todos-app/ui-header';
 import { TodosAppUiTodosListModule } from '@todos-workspace/todos-app/ui-todos-list';
 import { TodosAppUiTodosHeaderModule } from '@todos-workspace/todos-app/ui-todos-header';
 import { Routes, RouterModule } from '@angular/router';
@@ -18,6 +19,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    TodosAppUiHeaderModule,
     TodosAppUiTodosHeaderModule,
     TodosAppUiMaterialModule,
     TodosAppUiTodosListModule,
