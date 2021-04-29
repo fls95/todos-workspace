@@ -51,6 +51,9 @@
       ],
       "@todos-workspace/todos-app/ui-header": [
         "libs/todos-app/ui-header/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/ui-new-todo-dialog": [
+        "libs/todos-app/ui-new-todo-dialog/src/index.ts"
       ]
     }
   },

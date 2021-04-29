@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatSelectModule,
     MatCheckboxModule,
     TextFieldModule,
+    MatDialogModule,
   ],
   exports: [
     MatInputModule,
@@ -46,6 +48,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatSelectModule,
     MatCheckboxModule,
     TextFieldModule,
+    MatDialogModule,
   ],
 })
 export class TodosAppUiMaterialModule {}

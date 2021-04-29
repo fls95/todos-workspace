@@ -17,5 +17,6 @@ module.exports = {
     '<rootDir>/libs/api/shared/data',
     '<rootDir>/libs/todos-app/util-auto-unsubscribe',
     '<rootDir>/libs/todos-app/ui-loading-indicator',
+    '<rootDir>/libs/todos-app/ui-new-todo-dialog',
   ],
 };
