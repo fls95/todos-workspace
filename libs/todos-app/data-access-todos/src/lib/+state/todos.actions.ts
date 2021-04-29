@@ -12,6 +12,8 @@ export enum TodosActionTypes {
   UpdateTodoRequest = '[Todos Page] Update Todo Request',
   UpdateTodo = '[Todos Page] Update Todo',
   UpdateTodoSuccess = '[Todos Page] Update Todo Success',
+  UpdateTodosRequest = '[Todos Page] Update Todos Request',
+  UpdateTodos = '[Todos Page] Update Todos',
   DeleteTodoRequest = '[Todos Page] Delete Todo Request',
   DeleteTodo = '[Todos Page] Delete Todo',
   DeleteTodoSuccess = '[Todos Page] Delete Todo Success',
@@ -50,6 +52,16 @@ export const updateTodo = createAction(
 
 export const updateTodoSuccess = createAction(
   TodosActionTypes.UpdateTodoSuccess
+);
+
+export const updateTodosRequest = createAction(
+  TodosActionTypes.UpdateTodosRequest,
+  props<{ updates: Update<Todo>[] }>()
+);
+
+export const updateTodos = createAction(
+  TodosActionTypes.UpdateTodos,
+  props<{ updates: Update<Todo>[] }>()
 );
 
 export const deleteTodoRequest = createAction(

@@ -3,5 +3,6 @@ import { TodoDetail as TodoDetailInterface } from '@todos-workspace/shared/model
 export class TodoDetail implements TodoDetailInterface {
   id: string;
   title: string;
+  completed: boolean;
   detail: string;
 }

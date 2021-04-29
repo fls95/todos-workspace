@@ -20,6 +20,7 @@ export class TodoDetailFormComponent implements OnInit {
   createForm() {
     this.todoDetailFormGroup = this.formBuilder.group({
       title: [this.todoDetail.title],
+      completed: [this.todoDetail.completed],
       detail: [this.todoDetail.detail],
     });
   }

@@ -51,21 +51,73 @@ export class TodosEffects {
     this.actions$.pipe(
       ofType(TodosActions.updateTodoRequest),
       switchMap((action) => {
+        const updateChanges: Partial<Todo> = action.update.changes;
+        const updateChangesKeys: string[] = Object.keys(updateChanges);
+
         const toUpdateTodo: Partial<Todo> = {
           id: action.update.id as string,
-          title: action.update.changes.title,
+          ...(updateChangesKeys.includes('title') && {
+            title: updateChanges.title,
+          }),
+          ...(updateChangesKeys.includes('completed') && {
+            completed: updateChanges.completed,
+          }),
         };
         return this.todosService.updateTodo(toUpdateTodo).pipe(
           map(
             (updatedTodo): Update<Todo> => ({
               id: updatedTodo.id,
-              changes: { title: updatedTodo.title },
+              changes: {
+                title: updatedTodo.title,
+                completed: updatedTodo.completed,
+              },
             })
           ),
           mergeMap((updatedTodo) => [
             TodosActions.updateTodo({ update: updatedTodo }),
             TodosActions.updateTodoSuccess(),
           ]),
+          catchError(() => EMPTY)
+        );
+      })
+    )
+  );
+
+  updateTodosRequest$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TodosActions.updateTodosRequest),
+      switchMap((action) => {
+        const toUpdateTodos: Partial<Todo>[] = [];
+
+        action.updates.forEach((update) => {
+          const updateChanges: Partial<Todo> = update.changes;
+          const updateChangesKeys: string[] = Object.keys(updateChanges);
+
+          const toUpdateTodo: Partial<Todo> = {
+            id: update.id as string,
+            ...(updateChangesKeys.includes('title') && {
+              title: updateChanges.title,
+            }),
+            ...(updateChangesKeys.includes('completed') && {
+              completed: updateChanges.completed,
+            }),
+          };
+
+          toUpdateTodos.push(toUpdateTodo);
+        });
+        return this.todosService.updateTodos(toUpdateTodos).pipe(
+          map((updatedTodos): Update<Todo>[] => {
+            return updatedTodos.map((updatedTodo) => ({
+              id: updatedTodo.id,
+              changes: {
+                title: updatedTodo.title,
+                completed: updatedTodo.completed,
+              },
+            }));
+          }),
+          map((updatedTodos) =>
+            TodosActions.updateTodos({ updates: updatedTodos })
+          ),
           catchError(() => EMPTY)
         );
       })

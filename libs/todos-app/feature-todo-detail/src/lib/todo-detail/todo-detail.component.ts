@@ -50,6 +50,8 @@ export class TodoDetailComponent {
       id: this.todoDetailFormComponent.todoDetail.id,
       changes: {
         title: this.todoDetailFormComponent.todoDetailFormGroup.value.title,
+        completed: this.todoDetailFormComponent.todoDetailFormGroup.value
+          .completed,
         detail: this.todoDetailFormComponent.todoDetailFormGroup.value.detail,
       },
     };

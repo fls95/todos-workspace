@@ -17,6 +17,7 @@ export class NewTodoDialogComponent {
     const newTodo: Todo = {
       id: null,
       title: this.todoTitleControl.value,
+      completed: false,
     };
     this.dialogRef.close(newTodo);
   }

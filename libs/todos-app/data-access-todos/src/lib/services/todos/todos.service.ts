@@ -26,6 +26,10 @@ export class TodosService {
       .pipe(map((res) => res.todo));
   }
 
+  updateTodos(todos: Partial<Todo>[]): Observable<Todo[]> {
+    return this.http.patch<Todo[]>('api/todos', { todos });
+  }
+
   deleteTodo(id: Todo['id']): Observable<Todo> {
     return this.http
       .delete<{ todo: Todo }>(`/api/todos/${id}`)

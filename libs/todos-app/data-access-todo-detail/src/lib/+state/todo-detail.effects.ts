@@ -55,10 +55,20 @@ export class TodoDetailEffects {
     this.actions$.pipe(
       ofType(TodoDetailActions.updateTodoDetailRequest),
       switchMap((action) => {
+        const updateChanges: Partial<TodoDetail> = action.update.changes;
+        const updateChangesKeys: string[] = Object.keys(updateChanges);
+
         const toUpdateTodoDetail: Partial<TodoDetail> = {
           id: action.update.id as string,
-          title: action.update.changes.title,
-          detail: action.update.changes.detail,
+          ...(updateChangesKeys.includes('title') && {
+            title: updateChanges.title,
+          }),
+          ...(updateChangesKeys.includes('completed') && {
+            completed: updateChanges.completed,
+          }),
+          ...(updateChangesKeys.includes('detail') && {
+            detail: updateChanges.detail,
+          }),
         };
         return this.todoDetailService.updateTodoDetail(toUpdateTodoDetail).pipe(
           map(
@@ -66,6 +76,7 @@ export class TodoDetailEffects {
               id: updatedTodoDetail.id,
               changes: {
                 title: updatedTodoDetail.title,
+                completed: updatedTodoDetail.completed,
                 detail: updatedTodoDetail.detail,
               },
             })

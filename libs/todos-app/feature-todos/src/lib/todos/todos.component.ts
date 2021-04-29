@@ -7,6 +7,7 @@ import {
   loadTodosRequest,
   addTodoRequest,
   updateTodoRequest,
+  updateTodosRequest,
   deleteTodoRequest,
   TodosState,
   selectTodoLoading,
@@ -57,7 +58,6 @@ export class TodosComponent {
     this.afterClosedSubscription$ = dialogRef
       .afterClosed()
       .subscribe((newTodo) => {
-        console.log(newTodo);
         if (newTodo) {
           this.store.dispatch(addTodoRequest({ todo: newTodo }));
         }
@@ -66,6 +66,10 @@ export class TodosComponent {
 
   onTodoUpdate(update: Update<Todo>) {
     this.store.dispatch(updateTodoRequest({ update }));
+  }
+
+  onTodosUpdate(updates: Update<Todo>[]) {
+    this.store.dispatch(updateTodosRequest({ updates }));
   }
 
   onTodoDelete(id: Todo['id']) {

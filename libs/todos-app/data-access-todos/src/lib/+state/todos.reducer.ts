@@ -38,6 +38,7 @@ const todosReducer = createReducer(
     TodosActions.loadTodosRequest,
     TodosActions.addTodoRequest,
     TodosActions.updateTodoRequest,
+    TodosActions.updateTodosRequest,
     TodosActions.deleteTodoRequest,
     (state) => ({
       ...state,
@@ -62,6 +63,14 @@ const todosReducer = createReducer(
   on(TodosActions.addTodo, (state, { todo }) => adapter.addOne(todo, state)),
   on(TodosActions.updateTodo, (state, { update }) =>
     adapter.updateOne(update, state)
+  ),
+  on(TodosActions.updateTodos, (state, { updates }) =>
+    adapter.updateMany(updates, {
+      ...state,
+      loading: false,
+      selectedTodoId: null,
+      error: null,
+    })
   ),
   on(TodosActions.deleteTodo, (state, { id }) => adapter.removeOne(id, state))
 );

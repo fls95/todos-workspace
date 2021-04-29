@@ -11,11 +11,12 @@ export class TodoDetailService {
 
   create(createTodoDetailDto: CreateTodoDetailDto): { todoDetail: TodoDetail } {
     const todoDetail = createTodoDetailDto.todoDetail;
-    const { id, title, detail } = todoDetail;
+    const { id, title, completed, detail } = todoDetail;
 
     const newTodoDetail: TodoDetail = {
       id: id,
       title: title,
+      completed: completed,
       detail: detail ? detail : null,
     };
 
@@ -35,9 +36,11 @@ export class TodoDetailService {
     if (todoDetail) {
       return todoDetail;
     } else {
+      const todo: Todo = this.todos.find((todo) => todo.id === id);
       const newTodoDetail: TodoDetail = {
         id: id,
-        title: this.todos.find((todo) => todo.id === id).title,
+        title: todo.title,
+        completed: todo.completed,
         detail: null,
       };
 
@@ -49,22 +52,41 @@ export class TodoDetailService {
     id: TodoDetail['id'],
     updateTodoDetailDto: UpdateTodoDetailDto
   ): { todoDetail: TodoDetail } {
-    const toUpdateTodo: Todo = this.todos.find((todo) => todo.id === id);
-    delete toUpdateTodo.title;
-    Object.assign(toUpdateTodo, {
-      title: updateTodoDetailDto.todoDetail.title,
-    });
-
     const toUpdateTodoDetail: TodoDetail = this.todosDetails.find(
       (todoDetail) => todoDetail.id === id
     );
-    delete toUpdateTodoDetail.title;
-    delete toUpdateTodoDetail.detail;
+    const toUpdateTodoDetailPayload: Partial<TodoDetail> =
+      updateTodoDetailDto.todoDetail;
+    const toUpdateTodoDetailPayloadKeys: string[] = Object.keys(
+      toUpdateTodoDetailPayload
+    );
+    const todoDetailUpdates: Partial<TodoDetail>[] = [];
 
-    const updatedTodoDetail: TodoDetail = Object.assign(toUpdateTodoDetail, {
-      title: updateTodoDetailDto.todoDetail.title,
-      detail: updateTodoDetailDto.todoDetail.detail,
-    });
+    const toUpdateTodo: Todo = this.todos.find((todo) => todo.id === id);
+    const todoUpdates: Partial<Todo>[] = [];
+
+    if (toUpdateTodoDetailPayloadKeys.includes('title')) {
+      delete toUpdateTodo.title;
+      delete toUpdateTodoDetail.title;
+      todoUpdates.push({ title: toUpdateTodoDetailPayload.title });
+    }
+    if (toUpdateTodoDetailPayloadKeys.includes('completed')) {
+      delete toUpdateTodo.completed;
+      delete toUpdateTodoDetail.completed;
+      todoUpdates.push({ completed: toUpdateTodoDetailPayload.completed });
+    }
+    if (toUpdateTodoDetailPayloadKeys.includes('detail')) {
+      delete toUpdateTodoDetail.detail;
+      todoDetailUpdates.push({ detail: toUpdateTodoDetailPayload.detail });
+    }
+
+    Object.assign(toUpdateTodo, ...todoUpdates);
+
+    const updatedTodoDetail: TodoDetail = Object.assign(
+      toUpdateTodoDetail,
+      ...todoUpdates,
+      ...todoDetailUpdates
+    );
 
     return { todoDetail: updatedTodoDetail };
   }

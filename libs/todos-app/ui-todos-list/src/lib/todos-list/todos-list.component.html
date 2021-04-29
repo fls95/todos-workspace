@@ -1,12 +1,19 @@
 <mat-list>
-  <mat-list-item *ngFor="let todo of todos">
-    <!-- <div matLine> -->
-    <mat-checkbox style="margin-right: 1rem"></mat-checkbox>
+  <mat-list-item *ngIf="!checkUncompletedTodos()">
+    <mat-checkbox
+      (change)="onMarkAndUnmarkAllAsCompleted($event)"
+    ></mat-checkbox>
+    Mark all as completed
+  </mat-list-item>
+  <mat-list-item *ngFor="let todo of uncompletedTodos()">
+    <mat-checkbox
+      [checked]="todo.completed"
+      (change)="onTodoMatCheckboxChange($event, todo)"
+    ></mat-checkbox>
     <todos-workspace-todo-form
       [todo]="todo"
       (emitTodoUpdate)="onTodoUpdate($event)"
     ></todos-workspace-todo-form>
-    <!-- </div> -->
     <button mat-icon-button (click)="onTodoDetailEdit(todo.id)">
       <mat-icon>edit</mat-icon>
     </button>
@@ -17,50 +24,36 @@
   </mat-list-item>
 </mat-list>
 
-<!-- <div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner">
-    <mat-list>
-      <mat-list-item *ngFor="let todo of todos">
-        <div class="mdc-layout-grid__cell">
-          <mat-checkbox></mat-checkbox>
-        </div>
-        <div class="mdc-layout-grid__cell">
-          <todos-workspace-todo-form
-            [todo]="todo"
-            (emitTodoUpdate)="onTodoUpdate($event)"
-          ></todos-workspace-todo-form>
-        </div>
-        <div class="mdc-layout-grid__cell">
-          <button mat-icon-button (click)="onTodoDelete(todo.id)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-        <mat-divider [inset]="true"></mat-divider>
-      </mat-list-item>
-    </mat-list>
-  </div>
-</div> -->
-
-<!-- <mat-list>
-  <mat-list-item *ngFor="let todo of todos">
-    <div class="mdc-layout-grid">
-      <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--align-middle">
-          <mat-checkbox></mat-checkbox>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--align-middle">
-          <todos-workspace-todo-form
-            [todo]="todo"
-            (emitTodoUpdate)="onTodoUpdate($event)"
-          ></todos-workspace-todo-form>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--align-middle">
-          <button mat-icon-button (click)="onTodoDelete(todo.id)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-      </div>
-    </div>
-    <mat-divider [inset]="true"></mat-divider>
-  </mat-list-item>
-</mat-list> -->
+<mat-expansion-panel *ngIf="completedTodos().length > 0">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Completed ({{ completedTodos().length }})</mat-panel-title
+    >
+  </mat-expansion-panel-header>
+  <mat-list>
+    <mat-list-item>
+      <mat-checkbox
+        [checked]="true"
+        (change)="onMarkAndUnmarkAllAsCompleted($event)"
+      ></mat-checkbox>
+      Unmark all as completed
+    </mat-list-item>
+    <mat-list-item *ngFor="let todo of completedTodos()">
+      <mat-checkbox
+        [checked]="todo.completed"
+        (change)="onTodoMatCheckboxChange($event, todo)"
+      ></mat-checkbox>
+      <todos-workspace-todo-form
+        [todo]="todo"
+        (emitTodoUpdate)="onTodoUpdate($event)"
+      ></todos-workspace-todo-form>
+      <button mat-icon-button (click)="onTodoDetailEdit(todo.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="onTodoDelete(todo.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <mat-divider [inset]="true"></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</mat-expansion-panel>
