@@ -45,24 +45,29 @@ const todosReducer = createReducer(
       loading: true,
     })
   ),
-  on(
-    TodosActions.loadTodosSuccess,
-    TodosActions.addTodoSuccess,
-    TodosActions.updateTodoSuccess,
-    TodosActions.deleteTodoSuccess,
-    (state) => ({
+  on(TodosActions.loadTodos, (state, { todos }) =>
+    adapter.setAll(todos, {
       ...state,
       loading: false,
       selectedTodoId: null,
       error: null,
     })
   ),
-  on(TodosActions.loadTodos, (state, { todos }) =>
-    adapter.setAll(todos, state)
+  on(TodosActions.addTodo, (state, { todo }) =>
+    adapter.addOne(todo, {
+      ...state,
+      loading: false,
+      selectedTodoId: null,
+      error: null,
+    })
   ),
-  on(TodosActions.addTodo, (state, { todo }) => adapter.addOne(todo, state)),
   on(TodosActions.updateTodo, (state, { update }) =>
-    adapter.updateOne(update, state)
+    adapter.updateOne(update, {
+      ...state,
+      loading: false,
+      selectedTodoId: null,
+      error: null,
+    })
   ),
   on(TodosActions.updateTodos, (state, { updates }) =>
     adapter.updateMany(updates, {
@@ -72,7 +77,14 @@ const todosReducer = createReducer(
       error: null,
     })
   ),
-  on(TodosActions.deleteTodo, (state, { id }) => adapter.removeOne(id, state))
+  on(TodosActions.deleteTodo, (state, { id }) =>
+    adapter.removeOne(id, {
+      ...state,
+      loading: false,
+      selectedTodoId: null,
+      error: null,
+    })
+  )
 );
 
 export function reducer(state: TodosData | undefined, action: Action) {

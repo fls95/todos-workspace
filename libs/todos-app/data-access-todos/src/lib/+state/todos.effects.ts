@@ -3,13 +3,7 @@ import { Todo } from '@todos-workspace/shared/models';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
-import {
-  catchError,
-  concatMap,
-  map,
-  mergeMap,
-  switchMap,
-} from 'rxjs/operators';
+import { catchError, concatMap, map, switchMap } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 
 import * as TodosActions from './todos.actions';
@@ -22,10 +16,7 @@ export class TodosEffects {
       ofType(TodosActions.loadTodosRequest),
       switchMap(() => {
         return this.todosService.getTodos().pipe(
-          mergeMap((todos) => [
-            TodosActions.loadTodos({ todos }),
-            TodosActions.loadTodosSuccess(),
-          ]),
+          map((todos) => TodosActions.loadTodos({ todos })),
           catchError(() => EMPTY)
         );
       })
@@ -37,10 +28,7 @@ export class TodosEffects {
       ofType(TodosActions.addTodoRequest),
       concatMap((action) => {
         return this.todosService.addTodo(action.todo).pipe(
-          mergeMap((newTodo) => [
-            TodosActions.addTodo({ todo: newTodo }),
-            TodosActions.addTodoSuccess(),
-          ]),
+          map((newTodo) => TodosActions.addTodo({ todo: newTodo })),
           catchError(() => EMPTY)
         );
       })
@@ -73,10 +61,9 @@ export class TodosEffects {
               },
             })
           ),
-          mergeMap((updatedTodo) => [
-            TodosActions.updateTodo({ update: updatedTodo }),
-            TodosActions.updateTodoSuccess(),
-          ]),
+          map((updatedTodo) =>
+            TodosActions.updateTodo({ update: updatedTodo })
+          ),
           catchError(() => EMPTY)
         );
       })
@@ -130,10 +117,7 @@ export class TodosEffects {
       switchMap((action) => {
         const id = action.id;
         return this.todosService.deleteTodo(id).pipe(
-          mergeMap((deletedTodo) => [
-            TodosActions.deleteTodo({ id: deletedTodo.id }),
-            TodosActions.deleteTodoSuccess(),
-          ]),
+          map((deletedTodo) => TodosActions.deleteTodo({ id: deletedTodo.id })),
           catchError(() => EMPTY)
         );
       })

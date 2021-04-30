@@ -48,33 +48,36 @@ const todosReducer = createReducer(
       loading: true,
     })
   ),
-  on(TodoDetailActions.loadTodoDetailSuccess, (state) => ({
-    ...state,
-    loading: false,
-    error: null,
-  })),
-  on(
-    TodoDetailActions.addTodoDetailSuccess,
-    TodoDetailActions.updateTodoDetailSuccess,
-    TodoDetailActions.deleteTodoDetailSuccess,
-    (state) => ({
+  on(TodoDetailActions.loadTodoDetail, (state, { todoDetail }) =>
+    adapter.setOne(todoDetail, {
+      ...state,
+      loading: false,
+      error: null,
+    })
+  ),
+  on(TodoDetailActions.addTodoDetail, (state, { todoDetail }) =>
+    adapter.addOne(todoDetail, {
       ...state,
       loading: false,
       selectedTodoDetailId: null,
       error: null,
     })
   ),
-  on(TodoDetailActions.loadTodoDetail, (state, { todoDetail }) =>
-    adapter.setOne(todoDetail, state)
-  ),
-  on(TodoDetailActions.addTodoDetail, (state, { todoDetail }) =>
-    adapter.addOne(todoDetail, state)
-  ),
   on(TodoDetailActions.updateTodoDetail, (state, { update }) =>
-    adapter.updateOne(update, state)
+    adapter.updateOne(update, {
+      ...state,
+      loading: false,
+      selectedTodoDetailId: null,
+      error: null,
+    })
   ),
   on(TodoDetailActions.deleteTodoDetail, (state, { id }) =>
-    adapter.removeOne(id, state)
+    adapter.removeOne(id, {
+      ...state,
+      loading: false,
+      selectedTodoDetailId: null,
+      error: null,
+    })
   )
 );
 

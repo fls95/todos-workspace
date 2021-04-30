@@ -29,14 +29,15 @@ export class TodoDetailService {
   }
 
   findOne(id: TodoDetail['id']): TodoDetail {
+    const todo: Todo = this.todos.find((todo) => todo.id === id);
     const todoDetail: TodoDetail = this.todosDetails.find(
       (todoDetail) => todoDetail.id === id
     );
 
     if (todoDetail) {
-      return todoDetail;
+      return this.update(id, { todoDetail: todo }).todoDetail;
+      // return todoDetail;
     } else {
-      const todo: Todo = this.todos.find((todo) => todo.id === id);
       const newTodoDetail: TodoDetail = {
         id: id,
         title: todo.title,
@@ -66,14 +67,14 @@ export class TodoDetailService {
     const todoUpdates: Partial<Todo>[] = [];
 
     if (toUpdateTodoDetailPayloadKeys.includes('title')) {
-      delete toUpdateTodo.title;
       delete toUpdateTodoDetail.title;
       todoUpdates.push({ title: toUpdateTodoDetailPayload.title });
+      delete toUpdateTodo.title;
     }
     if (toUpdateTodoDetailPayloadKeys.includes('completed')) {
-      delete toUpdateTodo.completed;
       delete toUpdateTodoDetail.completed;
       todoUpdates.push({ completed: toUpdateTodoDetailPayload.completed });
+      delete toUpdateTodo.completed;
     }
     if (toUpdateTodoDetailPayloadKeys.includes('detail')) {
       delete toUpdateTodoDetail.detail;

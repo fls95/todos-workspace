@@ -3,13 +3,7 @@ import { TodoDetail } from '@todos-workspace/shared/models';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
-import {
-  catchError,
-  concatMap,
-  map,
-  mergeMap,
-  switchMap,
-} from 'rxjs/operators';
+import { catchError, concatMap, map, switchMap } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 
 import * as TodoDetailActions from './todo-detail.actions';
@@ -23,10 +17,7 @@ export class TodoDetailEffects {
       switchMap((action) => {
         const id = action.id;
         return this.todoDetailService.getTodoDetail(id).pipe(
-          mergeMap((todoDetail) => [
-            TodoDetailActions.loadTodoDetail({ todoDetail }),
-            TodoDetailActions.loadTodoDetailSuccess(),
-          ]),
+          map((todoDetail) => TodoDetailActions.loadTodoDetail({ todoDetail })),
           catchError((error) => {
             console.error(error);
             return EMPTY;
@@ -41,10 +32,9 @@ export class TodoDetailEffects {
       ofType(TodoDetailActions.addTodoDetailRequest),
       concatMap((action) => {
         return this.todoDetailService.addTodoDetail(action.todoDetail).pipe(
-          mergeMap((newTodoDetail) => [
-            TodoDetailActions.addTodoDetail({ todoDetail: newTodoDetail }),
-            TodoDetailActions.addTodoDetailSuccess(),
-          ]),
+          map((newTodoDetail) =>
+            TodoDetailActions.addTodoDetail({ todoDetail: newTodoDetail })
+          ),
           catchError(() => EMPTY)
         );
       })
@@ -81,10 +71,9 @@ export class TodoDetailEffects {
               },
             })
           ),
-          mergeMap((updatedTodoDetail) => [
-            TodoDetailActions.updateTodoDetail({ update: updatedTodoDetail }),
-            TodoDetailActions.updateTodoDetailSuccess(),
-          ]),
+          map((updatedTodoDetail) =>
+            TodoDetailActions.updateTodoDetail({ update: updatedTodoDetail })
+          ),
           catchError(() => EMPTY)
         );
       })
@@ -97,10 +86,9 @@ export class TodoDetailEffects {
       switchMap((action) => {
         const id = action.id;
         return this.todoDetailService.deleteTodoDetail(id).pipe(
-          mergeMap((deletedTodoDetail) => [
-            TodoDetailActions.deleteTodoDetail({ id: deletedTodoDetail.id }),
-            TodoDetailActions.deleteTodoDetailSuccess(),
-          ]),
+          map((deletedTodoDetail) =>
+            TodoDetailActions.deleteTodoDetail({ id: deletedTodoDetail.id })
+          ),
           catchError(() => EMPTY)
         );
       })
