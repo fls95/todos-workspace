@@ -15,6 +15,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     TextFieldModule,
     MatDialogModule,
     MatExpansionModule,
+    MatTabsModule,
   ],
   exports: [
     MatInputModule,
@@ -52,6 +54,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     TextFieldModule,
     MatDialogModule,
     MatExpansionModule,
+    MatTabsModule,
   ],
 })
 export class TodosAppUiMaterialModule {}

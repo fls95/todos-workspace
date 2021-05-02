@@ -623,6 +623,87 @@
           }
         }
       }
+    },
+    "todos-app-feature-tabs": {
+      "projectType": "library",
+      "root": "libs/todos-app/feature-tabs",
+      "sourceRoot": "libs/todos-app/feature-tabs/src",
+      "prefix": "todos-workspace",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/todos-app/feature-tabs/src/**/*.ts",
+              "libs/todos-app/feature-tabs/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/todos-app/feature-tabs"
+          ],
+          "options": {
+            "jestConfig": "libs/todos-app/feature-tabs/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todos-app-ui-tabs-concept": {
+      "projectType": "library",
+      "root": "libs/todos-app/ui-tabs-concept",
+      "sourceRoot": "libs/todos-app/ui-tabs-concept/src",
+      "prefix": "todos-workspace",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/todos-app/ui-tabs-concept/src/**/*.ts",
+              "libs/todos-app/ui-tabs-concept/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/todos-app/ui-tabs-concept"
+          ],
+          "options": {
+            "jestConfig": "libs/todos-app/ui-tabs-concept/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todos-app-ui-tabs-directive": {
+      "projectType": "library",
+      "root": "libs/todos-app/ui-tabs-directive",
+      "sourceRoot": "libs/todos-app/ui-tabs-directive/src",
+      "prefix": "todos-workspace",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/todos-app/ui-tabs-directive/src/**/*.ts",
+              "libs/todos-app/ui-tabs-directive/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/todos-app/ui-tabs-directive"
+          ],
+          "options": {
+            "jestConfig": "libs/todos-app/ui-tabs-directive/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

@@ -54,6 +54,15 @@
       ],
       "@todos-workspace/todos-app/ui-new-todo-dialog": [
         "libs/todos-app/ui-new-todo-dialog/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/feature-tabs": [
+        "libs/todos-app/feature-tabs/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/ui-tabs-concept": [
+        "libs/todos-app/ui-tabs-concept/src/index.ts"
+      ],
+      "@todos-workspace/todos-app/ui-tabs-directive": [
+        "libs/todos-app/ui-tabs-directive/src/index.ts"
       ]
     }
   },

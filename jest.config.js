@@ -18,5 +18,8 @@ module.exports = {
     '<rootDir>/libs/todos-app/util-auto-unsubscribe',
     '<rootDir>/libs/todos-app/ui-loading-indicator',
     '<rootDir>/libs/todos-app/ui-new-todo-dialog',
+    '<rootDir>/libs/todos-app/feature-tabs',
+    '<rootDir>/libs/todos-app/ui-tabs-concept',
+    '<rootDir>/libs/todos-app/ui-tabs-directive',
   ],
 };

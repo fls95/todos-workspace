@@ -34,6 +34,9 @@
     "todos-app-util-auto-unsubscribe": { "tags": [] },
     "todos-app-ui-loading-indicator": { "tags": [] },
     "todos-app-ui-header": { "tags": [] },
-    "todos-app-ui-new-todo-dialog": { "tags": [] }
+    "todos-app-ui-new-todo-dialog": { "tags": [] },
+    "todos-app-feature-tabs": { "tags": [] },
+    "todos-app-ui-tabs-concept": { "tags": [] },
+    "todos-app-ui-tabs-directive": { "tags": [] }
   }
 }

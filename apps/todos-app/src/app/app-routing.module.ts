@@ -17,6 +17,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'tabs',
+    loadChildren: () =>
+      import('@todos-workspace/todos-app/feature-tabs').then(
+        (module) => module.TodosAppFeatureTabsModule
+      ),
+  },
+  {
     path: '',
     redirectTo: 'todos',
     pathMatch: 'full',
